@@ -12,4 +12,4 @@
 
 **Please do not spend more than a maxiumum of a couple of hours doing this test**
 
-Once completed, please zip up and send back to dev@3grc.co.uk.
+Please return the completed challenge to your recruitment contact as a link to your GIT repo or a zip of the source code.
