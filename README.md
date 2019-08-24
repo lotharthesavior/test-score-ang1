@@ -1,15 +1,4 @@
-# The Task
+# Branches
 
-1. Clone the repository to your local machine
-2. Add a feature to add new players to the Add Result drop downs.
-3. Add some validation to addResult function. Table tennis rules state that a player wins if they reach 11 points however the player needs to win by at least 2 points.
-4. Create a league table to show a list of points in descending order. Players are awarded 2 points per win.
-5. Fix the CEO to the bottom of the league (on 0 points).
-
-### Bonus
-
-1.  Seperate functionality into their own controllers, eg. resultController, playerController, leagueController. Data must persist accross the controllers (hint: use Services).
-
-**Please do not spend more than a maxiumum of a couple of hours doing this test**
-
-Please return the completed challenge to your recruitment contact as a link to your GIT repo or a zip of the source code.
+- `test-step-1` <- scorecard and players features added
+- `test-step-2` <- this is the final branch - league feature added, this branch is the one with the prepared PR.
