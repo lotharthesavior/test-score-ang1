@@ -20,14 +20,10 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div ng-app="scoreboard" ng-controller="scoreboardController">
-
-            <div>
-
+        <div ng-app="scoreboard">
+            <div ng-controller="scoreboardController">
                 <div>
-
                     <h2>Results</h2>
-
                     <table>
                         <thead>
                             <th>Player 1</th>
@@ -42,15 +38,10 @@
                             <td>{{ row.player_2 }}</td>
                         </tr>
                     </table>
-
                 </div>
-
                 <div>
-
                     <h2>Add Result</h2>
-
                     <form name="myForm">
-
                         <table>
                             <thead>
                                 <th>Player 1</th>
@@ -81,9 +72,44 @@
                                 </td>
                             </tr>
                         </table>
-                        
-                    </form>
 
+                    </form>
+                </div>
+            </div>
+
+            <hr/>
+
+            <div ng-controller="playerController">
+
+                <div>
+                    <h2>Players</h2>
+                    <table>
+                        <thead>
+                        <th>Id</th>
+                        <th>Name</th>
+                        </thead>
+                        <tr ng-repeat="row in players">
+                            <td>{{ row.id }}</td>
+                            <td>{{ row.name }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <h2>Add Player</h2>
+                    <form name="myForm">
+                        <table>
+                            <tr>
+                                <td>
+                                    <lable>Name</lable>
+                                    <input type="text" ng-model="player.name" />
+                                </td>
+                                <td>
+                                    <button ng-click="addPlayer(player)">Add</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
                 </div>
 
             </div>
@@ -91,17 +117,7 @@
             <hr/>
 
             <div>
-
-                <h2>Add Player</h2>
-
-            </div>
-
-            <hr/>
-
-            <div>
-
                 <h2>League</h2>
-
             </div>
 
         </div>
@@ -110,7 +126,8 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/scoreboard.js"></script>
+        <script src="js/controllers/scoreboard.js"></script>
+        <script src="js/controllers/player.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
