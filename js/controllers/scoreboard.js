@@ -1,10 +1,10 @@
 
 app.controller("scoreboardController", [
-    '$scope', 'PlayersService', 'ResultsService',
-    function($scope, PlayersService, ResultsService) {
+    '$scope', 'PlayersService', 'ResultsService', 'LeagueService',
+    function($scope, PlayersService, ResultsService, LeagueService) {
         $scope.players = PlayersService;
         $scope.results = ResultsService;
-        $scope.league = [];
+        $scope.league = LeagueService;
         $scope.error_message = "";
 
         /**
@@ -97,7 +97,36 @@ app.controller("scoreboardController", [
             result.id = $scope.results.length + 1;
             $scope.results.push(result);
             $scope.result = {};
+            $scope.updateLeague();
             hideError();
+        }
+
+        $scope.updateLeague = function() {
+            var league = [];
+            $scope.results.forEach(function(result){
+                var victor = null;
+                if (result.score_1 > result.score_2) {
+                    victor = result.player_1;
+                } else {
+                    victor = result.player_2;
+                }
+
+                var key = league.map((vic) => vic.name).indexOf(victor);
+                if (key !== -1 && victor !== 'Steve (CEO)') {
+                    league[key].points += 2;
+                } else if (key === -1) {
+                    var newPoints = 2;
+                    if (victor === 'Steve (CEO)') {
+                        newPoints = 0;
+                    }
+                    league.push({
+                        name: victor,
+                        points: newPoints,
+                        ceo: victor === 'Steve (CEO)'
+                    });
+                }
+                $scope.league.updateRank(league);
+            });
         }
     }
 ]);

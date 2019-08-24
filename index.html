@@ -21,7 +21,7 @@
         <![endif]-->
 
         <div ng-app="scoreboard">
-            <div ng-controller="scoreboardController">
+            <div ng-controller="scoreboardController" data-ng-init="updateLeague()">
                 <div>
                     <h2>Results</h2>
                     <table>
@@ -86,8 +86,8 @@
                     <h2>Players</h2>
                     <table>
                         <thead>
-                        <th>Id</th>
-                        <th>Name</th>
+                            <th>Id</th>
+                            <th>Name</th>
                         </thead>
                         <tr ng-repeat="row in players">
                             <td>{{ row.id }}</td>
@@ -119,7 +119,21 @@
             <hr/>
 
             <div>
-                <h2>League</h2>
+                <div ng-controller="leagueController">
+                    <div>
+                        <h2>League</h2>
+                        <table>
+                            <thead>
+                                <th>Name</th>
+                                <th>Points</th>
+                            </thead>
+                            <tr ng-repeat="row in league.rank | orderBy:'-points'">
+                                <td>{{ row.name }}</td>
+                                <td>{{ row.points }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -130,6 +144,7 @@
         <script src="js/main.js"></script>
         <script src="js/controllers/scoreboard.js"></script>
         <script src="js/controllers/player.js"></script>
+        <script src="js/controllers/league.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

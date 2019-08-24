@@ -32,3 +32,13 @@ app.factory('ResultsService', function(){
         { id: 10, player_1: "Emma", score_1: 11, player_2: "Dan", score_2: 9}
     ];
 });
+
+// {name: string, points: int, ceo: bool}
+app.factory('LeagueService', function(){
+    return {
+        rank: [],
+        updateRank: function(rank) {
+            this.rank = rank;
+        }
+    };
+});
