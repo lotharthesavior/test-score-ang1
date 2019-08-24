@@ -101,7 +101,7 @@ table .score-1 { text-align: right; }
 table .score-2 { text-align: left; }
 table .dash { text-align: center; }
 
-
+table td.error_message { color: red; }
 
 
 
